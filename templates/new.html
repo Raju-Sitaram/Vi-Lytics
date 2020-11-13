@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="This site does video analysis">
+        <meta name="viewport" content="width=device-width, initial=scale=1.0">
+        <title>Mall Analytics</title>
+        <!-- <script src="plotly.min.js"></script> -->
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="js/helper.js"></script>
+    </head>
+    <body >
+        <header>
+            <nav>
+                <a href="mall.html">Mall</a>
+                <a href="stores.html">Stores</a>
+                <a href="images/parking.png">Parking</a>
+            </nav>
+            <h2 style="color: aqua;">This is my 1st attempt to test out Date Picker</h2>
+        </header>
+        <header id="header">
+            <div class="logo"><a href="index.html">Mall<span>-experience</span></a>
+            </div>
+            <div>
+                Enter a Date - 
+                <input type="date" id="myDate" onchange="var myd = myDateChange();"/>
+                <button onclick="myClick();">Show Graph</button>
+                <input type="text" id="myText"  onchange="myTxtChange();"/>
+                <p id="demo" value=myd> </p>
+                <a href=".//assets//output//attrium_out.mp4">Attirum</a>
+
+
+                <!-- <video width="400"  controls >
+                    <source src=".//assets//output//attrium_out.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video> -->
+         </div>
+        </header>
+        <main>
+            <div id="Div1">
+                <script>
+
+                    // var graphDiv = document.getElementById('Div1')
+                    var trace1 = {
+                        x: [1.5, 3.5],
+                        y: [0.75, 2.5],
+                        text: ['Unfilled Circle', 'Filled Circle'], mode: 'text'
+                    };
+                    // var data = [
+                    //     {
+                    //         z: [[1, 20, 30], [20, 1, 60], [30, 60, 1]],
+                    //         type: 'circle'
+                    //     }
+                    // ];
+                    var layout = {
+                        title: 'Circles',
+                        xaxis: {
+                            range: [0, 4.5],
+                            zeroline: false
+                        },
+                        yaxis: {
+                            range: [0, 4.5]
+                        },
+                        width: 500,
+                        height: 500,
+                        shapes: [
+
+                            // Unfilled Circle
+
+                            {
+                                type: 'circle',
+                                xref: 'x',
+                                yref: 'y',
+                                x0: 1,
+                                y0: 1,
+                                x1: 3,
+                                y1: 3,
+                                line: {
+                                    color: 'rgba(50, 171, 96, 1)'
+                                }
+                            },
+
+                            // Filled Circle
+
+                            {
+                                type: 'circle',
+                                xref: 'x',
+                                yref: 'y',
+                                fillcolor: 'rgba(50, 171, 96, 0.7)',
+                                x0: 3,
+                                y0: 3,
+                                x1: 4,
+                                y1: 4,
+                                line: {
+                                    color: 'rgba(50, 171, 96, 1)'
+                                }
+                            }
+                        ]
+                    };
+
+                    var data = [trace1];
+                    console.log(trace1)
+                    console.log(layout)
+
+                    Plotly.plot('Div1', layout, {displayModeBar: false});                    
+                </script>
+            </div>
+           
+            <script>
+                // console.log("Value of Date inside new.html is " + myd)
+               function myChange() {
+                    console.log("Inside myDate function")
+                    var dt = document.getElementById("myDate").value
+                    console.log(dt)
+                }
+
+                function myTxtChange() {
+                    var x = document.getElementById("myText").value;
+                    document.getElementById("demo").innerHTML = "You selected: " + x;
+                    console.log(document.getElementById("myText").value);
+                    console.log(x);
+                }
+                var x_dt = [];
+                var y_cnt = [];
+
+                function myClick(){
+                    // console.log("Inside myClick function");
+                    // x_dt = ["2020-03-26 10:00:00", "2020-03-26 10:15:00", "2020-03-26 10:30:00", "2020-03-26 10:45:00", 
+                    //      "2020-03-26 11:00:00", "2020-03-26 11:15:00", "2020-03-26 11:30:00", "2020-03-26 11:45:00"];
+                    // y_cnt = [200, 225, 210, 150, 175, 200, 225, 150];                
+                    // // var data = [{x: x_dt, y: y_cnt, type: 'bar'}];
+                    var trace1 = {
+                        x: [1.5, 3.5],
+                        y: [0.75, 2.5],
+                        text: ['Unfilled Circle', 'Filled Circle'], mode: 'text'
+                    };
+
+                    var layout = {
+                        title: 'Circles',
+                        xaxis: {
+                            range: [0, 4.5],
+                            zeroline: false
+                        },
+                        yaxis: {
+                            range: [0, 4.5]
+                        },
+                        width: 500,
+                        height: 500,
+                        shapes: [
+
+                            // Unfilled Circle
+
+                            {
+                                type: 'circle',
+                                xref: 'x',
+                                yref: 'y',
+                                x0: 1,
+                                y0: 1,
+                                x1: 1,
+                                y1: 1,
+                                line: {
+                                    color: 'rgba(50, 171, 96, 1)'
+                                }
+                            },
+
+                            // Filled Circle
+
+                            {
+                                type: 'circle',
+                                xref: 'x',
+                                yref: 'y',
+                                fillcolor: 'rgba(50, 171, 96, 0.7)',
+                                x0: 3,
+                                y0: 3,
+                                x1: 3,
+                                y1: 3,
+                                line: {
+                                    color: 'rgba(50, 171, 96, 1)'
+                                }
+                            }
+                        ]
+                    };
+
+                    var data = [trace1];
+
+                    Plotly.plot('Div1', data, layout, {displayModeBar: false});                   //Plotly.react(Div1, data);
+                }
+
+            </script>                
+
+            
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

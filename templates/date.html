@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Mall Analytics</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <script>
+    import './styles.css'
+    import pickadate from 'pickadate'
+
+    const renderCell = ({ dateObject, children }) => {
+      if (dateObject.getDate() === 10) {
+        children.style.color = 'red'
+        return
+      }
+      if (dateObject.getDay() === 4) {
+        const newElement = document.createElement('div')
+        newElement.innerHTML = `<div>${dateObject.getDate()}<div>⭐️</div></div>`
+        return newElement
+      }
+    }
+
+    const picker = pickadate.create()
+    pickadate.render(document.getElementById('pickadate'), picker, { renderCell })
+
+  </script>
+
+</html>

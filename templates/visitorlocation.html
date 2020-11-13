@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <title>Mall Analytics</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/static/assets/css/main.css" />
+	<!--import lib-->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<!-- Scripts -->
+	<script src="/static/assets/js/jquery.min.js"></script>
+	<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="/static/assets/js/jquery.scrollex.min.js"></script>
+	<script src="/static/assets/js/skel.min.js"></script>
+	<script src="/static/assets/js/util.js"></script>
+	<script src="/static/assets/js/main.js"></script>
+	<script src="/static/js/helper.js"></script>
+    <script src="/static/js/plotly-latest.min.js"></script>
+
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create two unequal columns that floats next to each other */
+        .column {
+          float: left;
+          padding: 10px;
+          height: 300px; /* Should be removed. Only for demonstration */
+        }
+        
+        .left {
+          width: 50%;
+        }
+        
+        .right {
+          width: 50%;
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
+</head>
+
+
+<body class="subpage">
+
+    <!-- Header -->
+	<header id="header">
+        <div class="logo"><a href="index.html">Mall<span>-Analytics</span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
+	<!-- Nav -->
+	<nav id="menu">
+		<ul class="links">
+			<!--TO BE CHANGED AS SOON AS TESTING IS OVER-->
+            <li><a href="index.html">Home</a></li>
+			<!-- <li><a href="login.html">Login</a></li> -->
+			<li><a href="visitorcount.html">Visitors Count</a></li>
+			<li><a href="visitorlocation.html">Visitors by Location</a></li>
+			<li><a href="floorplan.html">Floor Plan</a></li>
+			<li><a href="interactivefull.html">Interactive Plans</a></li>
+		</ul>
+	</nav>
+
+    <div id="main">
+
+        <!-- Section -->
+        <section>
+            <div class="inner, align-center">
+                <!-- <header class="align-center"> -->
+                    <h3>Visitors Location Analysis</h3>
+                <!-- </header> -->
+                Enter a Date - 
+                <!-- <input type="date" id="myDate" onchange="myChange();"/> -->
+                <input type="date" id="myDate"/>
+                <button onclick="getVisData();">Show Graph</button>
+                <input type="time" id="myTime" value="15:00:00" step="1" onchange="repeatGraph(v_details);">
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div id='myDiv1'class="column left" width=50%></div>
+                <div id='myDiv2'class="column right" width=50%></div>
+                <div id='myDiv3'class="column right" width=50%></div>
+                <div id='myDiv4'class="column right" width=50%></div>
+            </div>
+        </section>
+
+    </body>
+
+</html>
